@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout::head (pageTitle='Sign up')">
+<title>Sign up</title>
+</head>
+<body class="animsition">
+	<header th:replace="layout::header"></header>
+
+	<section class="bgwhite p-t-66 p-b-60 ">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 p-b-30" style="margin: auto !important;">
+					<form class="leave-comment" method="post" id="frm_login"
+					 th:action="@{/client/doRegister}"  th:object="${customer}" name="registration">
+						<h4 class="m-text26 p-b-36 p-t-15">
+							<b>Sign up</b>
+						</h4>
+						
+						<div th:if="${register_fail}"
+							class="alert alert-danger alert-dismissible fade show" role="alert">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<span th:text="${register_fail}"></span>
+						</div>
+						
+						<br>
+						
+						<div class="bo4 of-hidden size15 m-b-20">
+						<span class="sizefull" style="color:red; width:4%; margin-left:5px;">*</span>
+							<input class="sizefull s-text7 p-l-22 p-r-22" style="width:96%; !importance;" type="text" 
+								name="username"  th:field="*{accountId.username}" placeholder="Username"/>
+								
+						</div>
+
+						<div class="bo4 of-hidden size15 m-b-20">
+						<span class="sizefull" style="color:red; width:4%; margin-left:5px;">*</span>
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="password" id="password" style="width:96%; !importance;"
+								name="password" th:field=*{accountId.password} placeholder="Password"/>
+						</div>
+
+						<div class="bo4 of-hidden size15 m-b-20" id="noti">
+						<span class="sizefull" style="color:red; width:4%; margin-left:5px;">*</span>
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="password" style="width:96%; !importance;"
+								name="repassword"  placeholder="Confirm password" id="repassword"/>
+								
+						</div>
+						
+						<div class="bo4 of-hidden size15 m-b-20">
+						<span class="sizefull" style="color:red; width:4%; margin-left:5px;">*</span>
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" style="width:96%; !importance;"
+								name="fullname" th:field="*{customerName}" placeholder="Full name">
+						</div>
+
+						<div class="bo4 of-hidden size15 m-b-20">
+							<label class="radio-inline  s-text7 p-l-22 p-r-22">
+									<input type="radio" th:field="*{gender}"  style="margin-top: 20px;" name="gender" value="male"
+										checked="checked" />Male 
+									<input type="radio" th:field="*{gender}"  style="margin-top: 20px; margin-left:20px;"  name="gender" value="female" />Female
+							</label>
+						</div>
+
+						<div class="bo4 of-hidden size15 m-b-20">
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="date" th:field="*{birthday}"
+								name="dob">
+						</div>
+
+						<div class="bo4 of-hidden size15 m-b-20">
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="text"
+								name="address" placeholder="Address" th:field="*{address}">
+						</div>
+
+						<div class="bo4 of-hidden size15 m-b-20">
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="text"
+								name="phoneNum" placeholder="Phone number" th:field="*{phone}">
+						</div>
+
+						<div class="bo4 of-hidden size15 m-b-20">
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="text"
+								name="email" placeholder="Email" th:field="*{email}">
+						</div>
+
+						<!-- Button -->
+						<button
+							class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4">
+							Sign up</button>
+					</form>
+
+				</div>
+
+
+			</div>
+		</div>
+
+	</section>
+
+	<footer th:replace="layout::footer"></footer>
+	<div th:replace="layout::foot"></div>
+	
+</body>
+</html>
