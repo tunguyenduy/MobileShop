@@ -56,8 +56,8 @@ public class HomeController {
 	}
 	
 	@GetMapping("/client/manageProfile")
-	public String manageProfile() {
-		
+	public String manageProfile(Model model) {
+		model.addAttribute("account", new Account());
 		return "manage_profile";
 	}
 	
